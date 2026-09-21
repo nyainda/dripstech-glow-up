@@ -119,3 +119,11 @@ export function formatPrice(price: number | null) {
     maximumFractionDigits: 0,
   }).format(price);
 }
+export async function getFullCatalogue(): Promise<CatalogueProduct[]> {
+  const categories = catalogueCategories.slice(1).map((category) => category.key);
+  const results = await Promise.allSettled(categories.map((category) => fetchProducts({ category, limit: 300 })));
+  const unique = new Map<string, CatalogueProduct>();
+  for (const result of results) if (result.status === "fulfilled") for (const product of result.value) unique.set(product.id, product);
+  if (unique.size === 0) throw new Error("The live catalogue is temporarily unavailable");
+  return [...unique.values()];
+}
