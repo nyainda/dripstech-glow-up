@@ -30,21 +30,21 @@ function strings(value: unknown): string[] {
 function normaliseProduct(value: unknown): CatalogueProduct | null {
   if (!value || typeof value !== "object") return null;
   const item = value as Record<string, unknown>;
-  if (typeof item.id !== "string" || typeof item.name !== "string" || typeof item.category !== "string") return null;
+  if (typeof item["id"] !== "string" || typeof item["name"] !== "string" || typeof item["category"] !== "string") return null;
 
   return {
-    id: item.id,
-    name: item.name,
-    model_number: typeof item.model_number === "string" ? item.model_number : null,
-    category: item.category,
-    subcategory: typeof item.subcategory === "string" ? item.subcategory : null,
-    description: typeof item.description === "string" ? item.description : null,
-    price: typeof item.price === "number" ? item.price : null,
-    images: strings(item.images),
-    in_stock: item.in_stock === true || item.in_stock === 1,
-    featured: item.featured === true || item.featured === 1,
-    features: strings(item.features),
-    applications: strings(item.applications),
+    id: item["id"],
+    name: item["name"],
+    model_number: typeof item["model_number"] === "string" ? item["model_number"] : null,
+    category: item["category"],
+    subcategory: typeof item["subcategory"] === "string" ? item["subcategory"] : null,
+    description: typeof item["description"] === "string" ? item["description"] : null,
+    price: typeof item["price"] === "number" ? item["price"] : null,
+    images: strings(item["images"]),
+    in_stock: item["in_stock"] === true || item["in_stock"] === 1,
+    featured: item["featured"] === true || item["featured"] === 1,
+    features: strings(item["features"]),
+    applications: strings(item["applications"]),
   };
 }
 
