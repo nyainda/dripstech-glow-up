@@ -1,0 +1,35 @@
+import { Link, createFileRoute, notFound } from "@tanstack/react-router";
+import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
+import { ArrowLeft, Check, Download, MessageCircle, Play } from "lucide-react";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { categoryLabel, formatPrice, getProduct } from "@/lib/catalog";
+import { absoluteUrl, pageHead, whatsappLink } from "@/lib/site";
+import fallbackImage from "@/assets/product-fittings.jpg";
+
+function productId(slug: string) { return slug.includes("--") ? slug.split("--").at(-1) ?? slug : slug; }
+const productQuery = (slug: string) => queryOptions({ queryKey: ["product", productId(slug)], queryFn: () => getProduct(productId(slug)), staleTime: 1000 * 60 * 10 });
+export const Route = createFileRoute("/products/$category/$product")({
+  loader: async ({ context, params }) => { try { return await context.queryClient.ensureQueryData(productQuery(params.product)); } catch { throw notFound(); } },
+  head: ({ params, loaderData }) => {
+    if (!loaderData) return { meta: [{ title: "Product not found | DripTech" }, { name: "robots", content: "noindex" }] };
+    const path = `/products/${params.category}/${params.product}`;
+    const title = `${loaderData.name} Price in Kenya | DripTech`;
+    const description = (loaderData.description ?? `Buy ${loaderData.name} in Kenya from DripTech Eco Flow.`).slice(0, 160);
+    const base = pageHead(path, title, description, "product");
+    return { ...base, scripts: [{ type: "application/ld+json", children: JSON.stringify({ "@context": "https://schema.org", "@type": "Product", name: loaderData.name, description, sku: loaderData.model_number ?? loaderData.id, image: loaderData.images, offers: { "@type": "Offer", priceCurrency: "KES", ...(loaderData.price !== null ? { price: loaderData.price } : {}), availability: loaderData.in_stock ? "https://schema.org/InStock" : "https://schema.org/OutOfStock", url: absoluteUrl(path) } }) }, { type: "application/ld+json", children: JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") }, { "@type": "ListItem", position: 2, name: "Products", item: absoluteUrl("/products") }, { "@type": "ListItem", position: 3, name: loaderData.name, item: absoluteUrl(path) }] }) }] };
+  }, component: ProductPage,
+});
+function ProductPage() {
+  const { product: slug, category } = Route.useParams(); const { data: product } = useSuspenseQuery(productQuery(slug)); const [image, setImage] = useState(0);
+  const documents = [["Brochure", product.brochure_url], ["Installation guide", product.installation_guide_url], ["Maintenance manual", product.maintenance_manual_url]] as const;
+  return <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8"><Link to="/products/$category" params={{ category }} className="inline-flex items-center gap-2 text-sm font-semibold text-teal"><ArrowLeft className="size-4" />Back to {categoryLabel(product.category)}</Link><div className="mt-6 grid gap-10 lg:grid-cols-2">
+    <div><div className="rounded-lg border border-border bg-card p-5"><img src={product.images[image] ?? fallbackImage} alt={`${product.name}${image ? ` image ${image + 1}` : ""}`} className="aspect-square w-full object-contain" /></div>{product.images.length > 1 && <div className="mt-3 grid grid-cols-5 gap-2">{product.images.slice(0, 5).map((src, index) => <Button key={`${src}-${index}`} variant="outline" onClick={() => setImage(index)} className={`h-auto p-1 ${image === index ? "border-teal" : ""}`} aria-label={`View image ${index + 1}`}><img src={src} alt="" className="aspect-square w-full object-contain" /></Button>)}</div>}</div>
+    <div><p className="text-xs font-semibold uppercase text-teal">{categoryLabel(product.category)}</p><h1 className="mt-3 font-serif text-3xl font-bold leading-tight sm:text-4xl">{product.name}</h1>{product.model_number && <p className="mt-2 text-sm text-muted-foreground">Model {product.model_number}</p>}<p className="mt-5 text-3xl font-bold">{formatPrice(product.price)}</p><p className="mt-2 flex items-center gap-2 text-sm text-teal"><Check className="size-4" />{product.in_stock ? "Available to order" : "Confirm availability"}</p><p className="mt-6 leading-7 text-muted-foreground">{product.description ?? "Professional irrigation equipment for dependable field use."}</p>
+    {product.variants.length > 0 && <section className="mt-7"><h2 className="font-serif text-lg font-bold">Available variants</h2><div className="mt-3 divide-y divide-border border-y border-border">{product.variants.map((variant) => <div key={variant.name} className="flex justify-between gap-4 py-3 text-sm"><span>{variant.name}</span><strong>{formatPrice(variant.price)}</strong></div>)}</div></section>}
+    <Button asChild size="lg" className="mt-7 h-12 w-full bg-accent text-accent-foreground shadow-none hover:bg-accent/90"><a href={whatsappLink(`Hello DripTech, I want to order ${product.name}${product.price === null ? "" : ` listed at ${formatPrice(product.price)}`}. Product: ${absoluteUrl(`/products/${category}/${slug}`)}. Please confirm stock and delivery to my location.`)} target="_blank" rel="noreferrer"><MessageCircle className="size-5" />Order via WhatsApp</a></Button>
+    </div></div>
+    <div className="mt-12 grid gap-8 lg:grid-cols-2">{product.features.length > 0 && <section><h2 className="font-serif text-2xl font-bold">Features</h2><ul className="mt-4 space-y-3">{product.features.map((item) => <li key={item} className="flex gap-3 text-sm text-muted-foreground"><Check className="mt-0.5 size-4 shrink-0 text-teal" />{item}</li>)}</ul></section>}{Object.keys(product.specifications).length > 0 && <section><h2 className="font-serif text-2xl font-bold">Specifications</h2><dl className="mt-4 divide-y divide-border border-y border-border">{Object.entries(product.specifications).map(([key, value]) => <div key={key} className="grid grid-cols-2 gap-4 py-3 text-sm"><dt className="text-muted-foreground">{key}</dt><dd className="font-semibold">{String(value)}</dd></div>)}</dl></section>}</div>
+    {(product.applications.length > 0 || documents.some(([, url]) => url) || product.video_url) && <div className="mt-10 grid gap-8 lg:grid-cols-2">{product.applications.length > 0 && <section><h2 className="font-serif text-2xl font-bold">Applications</h2><ul className="mt-4 space-y-3">{product.applications.map((item) => <li key={item} className="flex gap-3 text-sm text-muted-foreground"><Check className="mt-0.5 size-4 shrink-0 text-teal" />{item}</li>)}</ul></section>}<section><h2 className="font-serif text-2xl font-bold">Product resources</h2><div className="mt-4 flex flex-wrap gap-3">{documents.map(([label, url]) => url && <Button key={label} asChild variant="outline"><a href={url} target="_blank" rel="noreferrer"><Download className="size-4" />{label}</a></Button>)}{product.video_url && <Button asChild variant="outline"><a href={product.video_url} target="_blank" rel="noreferrer"><Play className="size-4" />Watch video</a></Button>}</div></section></div>}
+  </div>;
+}
