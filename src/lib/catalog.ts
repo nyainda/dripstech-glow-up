@@ -105,7 +105,7 @@ export async function getProduct(id: string): Promise<CatalogueProduct> {
 export const categoryPath: Record<string, string> = {
   accessories: "accessories", control_systems: "controls", drip_irrigation: "drip", emitters_drippers: "emitters", fertigation_systems: "fertigation", filtration_systems: "filtration", pipes_fittings: "pipes", pumps_motors: "pumps", sprinkler_systems: "sprinklers", valves_regulators: "valves",
 };
-export const pathCategory = Object.fromEntries(Object.entries(categoryPath).map(([key, path]) => [path, key]));
+export const pathCategory: Record<string, string> = { ...Object.fromEntries(Object.entries(categoryPath).map(([key, path]) => [path, key])), solar: "pumps_motors", greenhouse: "drip_irrigation", "filters-strainers": "filtration_systems", controllers: "control_systems", storage: "accessories", "rain-guns": "sprinkler_systems", borehole: "pumps_motors" };
 export function productSlug(product: CatalogueProduct) { return `${product.name.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "")}--${product.id}`; }
 
 export function categoryLabel(category: string) {
