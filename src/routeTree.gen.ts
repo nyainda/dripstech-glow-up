@@ -10,7 +10,37 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as BlogRouteImport } from './routes/blog'
+import { Route as BookTechnicianRouteImport } from './routes/book-technician'
+import { Route as BoreholeWaterPumpsKenyaRouteImport } from './routes/borehole-water-pumps-kenya'
+import { Route as CareersRouteImport } from './routes/careers'
+import { Route as CaseStudiesRouteImport } from './routes/case-studies'
+import { Route as CertificationsRouteImport } from './routes/certifications'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CookiesRouteImport } from './routes/cookies'
+import { Route as DripIrrigationKenyaRouteImport } from './routes/drip-irrigation-kenya'
+import { Route as DripIrrigationKitPriceKenyaRouteImport } from './routes/drip-irrigation-kit-price-kenya'
+import { Route as DriplinesForSaleKenyaRouteImport } from './routes/driplines-for-sale-kenya'
+import { Route as FertigationSystemsKenyaRouteImport } from './routes/fertigation-systems-kenya'
+import { Route as GreenhouseDripIrrigationKenyaRouteImport } from './routes/greenhouse-drip-irrigation-kenya'
+import { Route as InstallationGuidesRouteImport } from './routes/installation-guides'
+import { Route as IrrigationCompaniesKenyaRouteImport } from './routes/irrigation-companies-kenya'
+import { Route as IrrigationKitsRouteImport } from './routes/irrigation-kits'
+import { Route as NewsRouteImport } from './routes/news'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ProductsRouteImport } from './routes/products'
+import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SolarIrrigationPumpsKenyaRouteImport } from './routes/solar-irrigation-pumps-kenya'
+import { Route as SprinklerSystemsKenyaRouteImport } from './routes/sprinkler-systems-kenya'
+import { Route as SuccessStoriesRouteImport } from './routes/success-stories'
+import { Route as TeamRouteImport } from './routes/team'
+import { Route as TechnicalSupportRouteImport } from './routes/technical-support'
+import { Route as TechnicianServicesRouteImport } from './routes/technician-services'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as VideosRouteImport } from './routes/videos'
+import { Route as WaterStorageTanksKenyaRouteImport } from './routes/water-storage-tanks-kenya'
 import { Route as ProductsIndexRouteImport } from './routes/products.index'
 import { Route as ProductsCategoryRouteImport } from './routes/products.$category'
 import { Route as ProductsCategoryIndexRouteImport } from './routes/products.$category.index'
@@ -21,9 +51,163 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookTechnicianRoute = BookTechnicianRouteImport.update({
+  id: '/book-technician',
+  path: '/book-technician',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BoreholeWaterPumpsKenyaRoute = BoreholeWaterPumpsKenyaRouteImport.update({
+  id: '/borehole-water-pumps-kenya',
+  path: '/borehole-water-pumps-kenya',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CareersRoute = CareersRouteImport.update({
+  id: '/careers',
+  path: '/careers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CaseStudiesRoute = CaseStudiesRouteImport.update({
+  id: '/case-studies',
+  path: '/case-studies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CertificationsRoute = CertificationsRouteImport.update({
+  id: '/certifications',
+  path: '/certifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CookiesRoute = CookiesRouteImport.update({
+  id: '/cookies',
+  path: '/cookies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DripIrrigationKenyaRoute = DripIrrigationKenyaRouteImport.update({
+  id: '/drip-irrigation-kenya',
+  path: '/drip-irrigation-kenya',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DripIrrigationKitPriceKenyaRoute =
+  DripIrrigationKitPriceKenyaRouteImport.update({
+    id: '/drip-irrigation-kit-price-kenya',
+    path: '/drip-irrigation-kit-price-kenya',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const DriplinesForSaleKenyaRoute = DriplinesForSaleKenyaRouteImport.update({
+  id: '/driplines-for-sale-kenya',
+  path: '/driplines-for-sale-kenya',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FertigationSystemsKenyaRoute = FertigationSystemsKenyaRouteImport.update({
+  id: '/fertigation-systems-kenya',
+  path: '/fertigation-systems-kenya',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GreenhouseDripIrrigationKenyaRoute =
+  GreenhouseDripIrrigationKenyaRouteImport.update({
+    id: '/greenhouse-drip-irrigation-kenya',
+    path: '/greenhouse-drip-irrigation-kenya',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const InstallationGuidesRoute = InstallationGuidesRouteImport.update({
+  id: '/installation-guides',
+  path: '/installation-guides',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IrrigationCompaniesKenyaRoute =
+  IrrigationCompaniesKenyaRouteImport.update({
+    id: '/irrigation-companies-kenya',
+    path: '/irrigation-companies-kenya',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const IrrigationKitsRoute = IrrigationKitsRouteImport.update({
+  id: '/irrigation-kits',
+  path: '/irrigation-kits',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewsRoute = NewsRouteImport.update({
+  id: '/news',
+  path: '/news',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProductsRoute = ProductsRouteImport.update({
   id: '/products',
   path: '/products',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsRoute = ProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolarIrrigationPumpsKenyaRoute =
+  SolarIrrigationPumpsKenyaRouteImport.update({
+    id: '/solar-irrigation-pumps-kenya',
+    path: '/solar-irrigation-pumps-kenya',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SprinklerSystemsKenyaRoute = SprinklerSystemsKenyaRouteImport.update({
+  id: '/sprinkler-systems-kenya',
+  path: '/sprinkler-systems-kenya',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SuccessStoriesRoute = SuccessStoriesRouteImport.update({
+  id: '/success-stories',
+  path: '/success-stories',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeamRoute = TeamRouteImport.update({
+  id: '/team',
+  path: '/team',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TechnicalSupportRoute = TechnicalSupportRouteImport.update({
+  id: '/technical-support',
+  path: '/technical-support',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TechnicianServicesRoute = TechnicianServicesRouteImport.update({
+  id: '/technician-services',
+  path: '/technician-services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VideosRoute = VideosRouteImport.update({
+  id: '/videos',
+  path: '/videos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WaterStorageTanksKenyaRoute = WaterStorageTanksKenyaRouteImport.update({
+  id: '/water-storage-tanks-kenya',
+  path: '/water-storage-tanks-kenya',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProductsIndexRoute = ProductsIndexRouteImport.update({
@@ -49,7 +233,37 @@ const ProductsCategoryProductRoute = ProductsCategoryProductRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/blog': typeof BlogRoute
+  '/book-technician': typeof BookTechnicianRoute
+  '/borehole-water-pumps-kenya': typeof BoreholeWaterPumpsKenyaRoute
+  '/careers': typeof CareersRoute
+  '/case-studies': typeof CaseStudiesRoute
+  '/certifications': typeof CertificationsRoute
+  '/contact': typeof ContactRoute
+  '/cookies': typeof CookiesRoute
+  '/drip-irrigation-kenya': typeof DripIrrigationKenyaRoute
+  '/drip-irrigation-kit-price-kenya': typeof DripIrrigationKitPriceKenyaRoute
+  '/driplines-for-sale-kenya': typeof DriplinesForSaleKenyaRoute
+  '/fertigation-systems-kenya': typeof FertigationSystemsKenyaRoute
+  '/greenhouse-drip-irrigation-kenya': typeof GreenhouseDripIrrigationKenyaRoute
+  '/installation-guides': typeof InstallationGuidesRoute
+  '/irrigation-companies-kenya': typeof IrrigationCompaniesKenyaRoute
+  '/irrigation-kits': typeof IrrigationKitsRoute
+  '/news': typeof NewsRoute
+  '/privacy': typeof PrivacyRoute
   '/products': typeof ProductsRouteWithChildren
+  '/projects': typeof ProjectsRoute
+  '/services': typeof ServicesRoute
+  '/solar-irrigation-pumps-kenya': typeof SolarIrrigationPumpsKenyaRoute
+  '/sprinkler-systems-kenya': typeof SprinklerSystemsKenyaRoute
+  '/success-stories': typeof SuccessStoriesRoute
+  '/team': typeof TeamRoute
+  '/technical-support': typeof TechnicalSupportRoute
+  '/technician-services': typeof TechnicianServicesRoute
+  '/terms': typeof TermsRoute
+  '/videos': typeof VideosRoute
+  '/water-storage-tanks-kenya': typeof WaterStorageTanksKenyaRoute
   '/products/$category': typeof ProductsCategoryRouteWithChildren
   '/products/': typeof ProductsIndexRoute
   '/products/$category/$product': typeof ProductsCategoryProductRoute
@@ -57,6 +271,36 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/blog': typeof BlogRoute
+  '/book-technician': typeof BookTechnicianRoute
+  '/borehole-water-pumps-kenya': typeof BoreholeWaterPumpsKenyaRoute
+  '/careers': typeof CareersRoute
+  '/case-studies': typeof CaseStudiesRoute
+  '/certifications': typeof CertificationsRoute
+  '/contact': typeof ContactRoute
+  '/cookies': typeof CookiesRoute
+  '/drip-irrigation-kenya': typeof DripIrrigationKenyaRoute
+  '/drip-irrigation-kit-price-kenya': typeof DripIrrigationKitPriceKenyaRoute
+  '/driplines-for-sale-kenya': typeof DriplinesForSaleKenyaRoute
+  '/fertigation-systems-kenya': typeof FertigationSystemsKenyaRoute
+  '/greenhouse-drip-irrigation-kenya': typeof GreenhouseDripIrrigationKenyaRoute
+  '/installation-guides': typeof InstallationGuidesRoute
+  '/irrigation-companies-kenya': typeof IrrigationCompaniesKenyaRoute
+  '/irrigation-kits': typeof IrrigationKitsRoute
+  '/news': typeof NewsRoute
+  '/privacy': typeof PrivacyRoute
+  '/projects': typeof ProjectsRoute
+  '/services': typeof ServicesRoute
+  '/solar-irrigation-pumps-kenya': typeof SolarIrrigationPumpsKenyaRoute
+  '/sprinkler-systems-kenya': typeof SprinklerSystemsKenyaRoute
+  '/success-stories': typeof SuccessStoriesRoute
+  '/team': typeof TeamRoute
+  '/technical-support': typeof TechnicalSupportRoute
+  '/technician-services': typeof TechnicianServicesRoute
+  '/terms': typeof TermsRoute
+  '/videos': typeof VideosRoute
+  '/water-storage-tanks-kenya': typeof WaterStorageTanksKenyaRoute
   '/products': typeof ProductsIndexRoute
   '/products/$category/$product': typeof ProductsCategoryProductRoute
   '/products/$category': typeof ProductsCategoryIndexRoute
@@ -64,7 +308,37 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/blog': typeof BlogRoute
+  '/book-technician': typeof BookTechnicianRoute
+  '/borehole-water-pumps-kenya': typeof BoreholeWaterPumpsKenyaRoute
+  '/careers': typeof CareersRoute
+  '/case-studies': typeof CaseStudiesRoute
+  '/certifications': typeof CertificationsRoute
+  '/contact': typeof ContactRoute
+  '/cookies': typeof CookiesRoute
+  '/drip-irrigation-kenya': typeof DripIrrigationKenyaRoute
+  '/drip-irrigation-kit-price-kenya': typeof DripIrrigationKitPriceKenyaRoute
+  '/driplines-for-sale-kenya': typeof DriplinesForSaleKenyaRoute
+  '/fertigation-systems-kenya': typeof FertigationSystemsKenyaRoute
+  '/greenhouse-drip-irrigation-kenya': typeof GreenhouseDripIrrigationKenyaRoute
+  '/installation-guides': typeof InstallationGuidesRoute
+  '/irrigation-companies-kenya': typeof IrrigationCompaniesKenyaRoute
+  '/irrigation-kits': typeof IrrigationKitsRoute
+  '/news': typeof NewsRoute
+  '/privacy': typeof PrivacyRoute
   '/products': typeof ProductsRouteWithChildren
+  '/projects': typeof ProjectsRoute
+  '/services': typeof ServicesRoute
+  '/solar-irrigation-pumps-kenya': typeof SolarIrrigationPumpsKenyaRoute
+  '/sprinkler-systems-kenya': typeof SprinklerSystemsKenyaRoute
+  '/success-stories': typeof SuccessStoriesRoute
+  '/team': typeof TeamRoute
+  '/technical-support': typeof TechnicalSupportRoute
+  '/technician-services': typeof TechnicianServicesRoute
+  '/terms': typeof TermsRoute
+  '/videos': typeof VideosRoute
+  '/water-storage-tanks-kenya': typeof WaterStorageTanksKenyaRoute
   '/products/$category': typeof ProductsCategoryRouteWithChildren
   '/products/': typeof ProductsIndexRoute
   '/products/$category/$product': typeof ProductsCategoryProductRoute
@@ -74,17 +348,111 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
+    | '/blog'
+    | '/book-technician'
+    | '/borehole-water-pumps-kenya'
+    | '/careers'
+    | '/case-studies'
+    | '/certifications'
+    | '/contact'
+    | '/cookies'
+    | '/drip-irrigation-kenya'
+    | '/drip-irrigation-kit-price-kenya'
+    | '/driplines-for-sale-kenya'
+    | '/fertigation-systems-kenya'
+    | '/greenhouse-drip-irrigation-kenya'
+    | '/installation-guides'
+    | '/irrigation-companies-kenya'
+    | '/irrigation-kits'
+    | '/news'
+    | '/privacy'
     | '/products'
+    | '/projects'
+    | '/services'
+    | '/solar-irrigation-pumps-kenya'
+    | '/sprinkler-systems-kenya'
+    | '/success-stories'
+    | '/team'
+    | '/technical-support'
+    | '/technician-services'
+    | '/terms'
+    | '/videos'
+    | '/water-storage-tanks-kenya'
     | '/products/$category'
     | '/products/'
     | '/products/$category/$product'
     | '/products/$category/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/products' | '/products/$category/$product' | '/products/$category'
+  to:
+    | '/'
+    | '/about'
+    | '/blog'
+    | '/book-technician'
+    | '/borehole-water-pumps-kenya'
+    | '/careers'
+    | '/case-studies'
+    | '/certifications'
+    | '/contact'
+    | '/cookies'
+    | '/drip-irrigation-kenya'
+    | '/drip-irrigation-kit-price-kenya'
+    | '/driplines-for-sale-kenya'
+    | '/fertigation-systems-kenya'
+    | '/greenhouse-drip-irrigation-kenya'
+    | '/installation-guides'
+    | '/irrigation-companies-kenya'
+    | '/irrigation-kits'
+    | '/news'
+    | '/privacy'
+    | '/projects'
+    | '/services'
+    | '/solar-irrigation-pumps-kenya'
+    | '/sprinkler-systems-kenya'
+    | '/success-stories'
+    | '/team'
+    | '/technical-support'
+    | '/technician-services'
+    | '/terms'
+    | '/videos'
+    | '/water-storage-tanks-kenya'
+    | '/products'
+    | '/products/$category/$product'
+    | '/products/$category'
   id:
     | '__root__'
     | '/'
+    | '/about'
+    | '/blog'
+    | '/book-technician'
+    | '/borehole-water-pumps-kenya'
+    | '/careers'
+    | '/case-studies'
+    | '/certifications'
+    | '/contact'
+    | '/cookies'
+    | '/drip-irrigation-kenya'
+    | '/drip-irrigation-kit-price-kenya'
+    | '/driplines-for-sale-kenya'
+    | '/fertigation-systems-kenya'
+    | '/greenhouse-drip-irrigation-kenya'
+    | '/installation-guides'
+    | '/irrigation-companies-kenya'
+    | '/irrigation-kits'
+    | '/news'
+    | '/privacy'
     | '/products'
+    | '/projects'
+    | '/services'
+    | '/solar-irrigation-pumps-kenya'
+    | '/sprinkler-systems-kenya'
+    | '/success-stories'
+    | '/team'
+    | '/technical-support'
+    | '/technician-services'
+    | '/terms'
+    | '/videos'
+    | '/water-storage-tanks-kenya'
     | '/products/$category'
     | '/products/'
     | '/products/$category/$product'
@@ -93,7 +461,37 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  BlogRoute: typeof BlogRoute
+  BookTechnicianRoute: typeof BookTechnicianRoute
+  BoreholeWaterPumpsKenyaRoute: typeof BoreholeWaterPumpsKenyaRoute
+  CareersRoute: typeof CareersRoute
+  CaseStudiesRoute: typeof CaseStudiesRoute
+  CertificationsRoute: typeof CertificationsRoute
+  ContactRoute: typeof ContactRoute
+  CookiesRoute: typeof CookiesRoute
+  DripIrrigationKenyaRoute: typeof DripIrrigationKenyaRoute
+  DripIrrigationKitPriceKenyaRoute: typeof DripIrrigationKitPriceKenyaRoute
+  DriplinesForSaleKenyaRoute: typeof DriplinesForSaleKenyaRoute
+  FertigationSystemsKenyaRoute: typeof FertigationSystemsKenyaRoute
+  GreenhouseDripIrrigationKenyaRoute: typeof GreenhouseDripIrrigationKenyaRoute
+  InstallationGuidesRoute: typeof InstallationGuidesRoute
+  IrrigationCompaniesKenyaRoute: typeof IrrigationCompaniesKenyaRoute
+  IrrigationKitsRoute: typeof IrrigationKitsRoute
+  NewsRoute: typeof NewsRoute
+  PrivacyRoute: typeof PrivacyRoute
   ProductsRoute: typeof ProductsRouteWithChildren
+  ProjectsRoute: typeof ProjectsRoute
+  ServicesRoute: typeof ServicesRoute
+  SolarIrrigationPumpsKenyaRoute: typeof SolarIrrigationPumpsKenyaRoute
+  SprinklerSystemsKenyaRoute: typeof SprinklerSystemsKenyaRoute
+  SuccessStoriesRoute: typeof SuccessStoriesRoute
+  TeamRoute: typeof TeamRoute
+  TechnicalSupportRoute: typeof TechnicalSupportRoute
+  TechnicianServicesRoute: typeof TechnicianServicesRoute
+  TermsRoute: typeof TermsRoute
+  VideosRoute: typeof VideosRoute
+  WaterStorageTanksKenyaRoute: typeof WaterStorageTanksKenyaRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -105,11 +503,221 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/book-technician': {
+      id: '/book-technician'
+      path: '/book-technician'
+      fullPath: '/book-technician'
+      preLoaderRoute: typeof BookTechnicianRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/borehole-water-pumps-kenya': {
+      id: '/borehole-water-pumps-kenya'
+      path: '/borehole-water-pumps-kenya'
+      fullPath: '/borehole-water-pumps-kenya'
+      preLoaderRoute: typeof BoreholeWaterPumpsKenyaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/careers': {
+      id: '/careers'
+      path: '/careers'
+      fullPath: '/careers'
+      preLoaderRoute: typeof CareersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/case-studies': {
+      id: '/case-studies'
+      path: '/case-studies'
+      fullPath: '/case-studies'
+      preLoaderRoute: typeof CaseStudiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/certifications': {
+      id: '/certifications'
+      path: '/certifications'
+      fullPath: '/certifications'
+      preLoaderRoute: typeof CertificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cookies': {
+      id: '/cookies'
+      path: '/cookies'
+      fullPath: '/cookies'
+      preLoaderRoute: typeof CookiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/drip-irrigation-kenya': {
+      id: '/drip-irrigation-kenya'
+      path: '/drip-irrigation-kenya'
+      fullPath: '/drip-irrigation-kenya'
+      preLoaderRoute: typeof DripIrrigationKenyaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/drip-irrigation-kit-price-kenya': {
+      id: '/drip-irrigation-kit-price-kenya'
+      path: '/drip-irrigation-kit-price-kenya'
+      fullPath: '/drip-irrigation-kit-price-kenya'
+      preLoaderRoute: typeof DripIrrigationKitPriceKenyaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/driplines-for-sale-kenya': {
+      id: '/driplines-for-sale-kenya'
+      path: '/driplines-for-sale-kenya'
+      fullPath: '/driplines-for-sale-kenya'
+      preLoaderRoute: typeof DriplinesForSaleKenyaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fertigation-systems-kenya': {
+      id: '/fertigation-systems-kenya'
+      path: '/fertigation-systems-kenya'
+      fullPath: '/fertigation-systems-kenya'
+      preLoaderRoute: typeof FertigationSystemsKenyaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/greenhouse-drip-irrigation-kenya': {
+      id: '/greenhouse-drip-irrigation-kenya'
+      path: '/greenhouse-drip-irrigation-kenya'
+      fullPath: '/greenhouse-drip-irrigation-kenya'
+      preLoaderRoute: typeof GreenhouseDripIrrigationKenyaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/installation-guides': {
+      id: '/installation-guides'
+      path: '/installation-guides'
+      fullPath: '/installation-guides'
+      preLoaderRoute: typeof InstallationGuidesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/irrigation-companies-kenya': {
+      id: '/irrigation-companies-kenya'
+      path: '/irrigation-companies-kenya'
+      fullPath: '/irrigation-companies-kenya'
+      preLoaderRoute: typeof IrrigationCompaniesKenyaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/irrigation-kits': {
+      id: '/irrigation-kits'
+      path: '/irrigation-kits'
+      fullPath: '/irrigation-kits'
+      preLoaderRoute: typeof IrrigationKitsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/news': {
+      id: '/news'
+      path: '/news'
+      fullPath: '/news'
+      preLoaderRoute: typeof NewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/products': {
       id: '/products'
       path: '/products'
       fullPath: '/products'
       preLoaderRoute: typeof ProductsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects': {
+      id: '/projects'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof ProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solar-irrigation-pumps-kenya': {
+      id: '/solar-irrigation-pumps-kenya'
+      path: '/solar-irrigation-pumps-kenya'
+      fullPath: '/solar-irrigation-pumps-kenya'
+      preLoaderRoute: typeof SolarIrrigationPumpsKenyaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sprinkler-systems-kenya': {
+      id: '/sprinkler-systems-kenya'
+      path: '/sprinkler-systems-kenya'
+      fullPath: '/sprinkler-systems-kenya'
+      preLoaderRoute: typeof SprinklerSystemsKenyaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/success-stories': {
+      id: '/success-stories'
+      path: '/success-stories'
+      fullPath: '/success-stories'
+      preLoaderRoute: typeof SuccessStoriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/team': {
+      id: '/team'
+      path: '/team'
+      fullPath: '/team'
+      preLoaderRoute: typeof TeamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/technical-support': {
+      id: '/technical-support'
+      path: '/technical-support'
+      fullPath: '/technical-support'
+      preLoaderRoute: typeof TechnicalSupportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/technician-services': {
+      id: '/technician-services'
+      path: '/technician-services'
+      fullPath: '/technician-services'
+      preLoaderRoute: typeof TechnicianServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/videos': {
+      id: '/videos'
+      path: '/videos'
+      fullPath: '/videos'
+      preLoaderRoute: typeof VideosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/water-storage-tanks-kenya': {
+      id: '/water-storage-tanks-kenya'
+      path: '/water-storage-tanks-kenya'
+      fullPath: '/water-storage-tanks-kenya'
+      preLoaderRoute: typeof WaterStorageTanksKenyaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/products/': {
@@ -172,7 +780,37 @@ const ProductsRouteWithChildren = ProductsRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  BlogRoute: BlogRoute,
+  BookTechnicianRoute: BookTechnicianRoute,
+  BoreholeWaterPumpsKenyaRoute: BoreholeWaterPumpsKenyaRoute,
+  CareersRoute: CareersRoute,
+  CaseStudiesRoute: CaseStudiesRoute,
+  CertificationsRoute: CertificationsRoute,
+  ContactRoute: ContactRoute,
+  CookiesRoute: CookiesRoute,
+  DripIrrigationKenyaRoute: DripIrrigationKenyaRoute,
+  DripIrrigationKitPriceKenyaRoute: DripIrrigationKitPriceKenyaRoute,
+  DriplinesForSaleKenyaRoute: DriplinesForSaleKenyaRoute,
+  FertigationSystemsKenyaRoute: FertigationSystemsKenyaRoute,
+  GreenhouseDripIrrigationKenyaRoute: GreenhouseDripIrrigationKenyaRoute,
+  InstallationGuidesRoute: InstallationGuidesRoute,
+  IrrigationCompaniesKenyaRoute: IrrigationCompaniesKenyaRoute,
+  IrrigationKitsRoute: IrrigationKitsRoute,
+  NewsRoute: NewsRoute,
+  PrivacyRoute: PrivacyRoute,
   ProductsRoute: ProductsRouteWithChildren,
+  ProjectsRoute: ProjectsRoute,
+  ServicesRoute: ServicesRoute,
+  SolarIrrigationPumpsKenyaRoute: SolarIrrigationPumpsKenyaRoute,
+  SprinklerSystemsKenyaRoute: SprinklerSystemsKenyaRoute,
+  SuccessStoriesRoute: SuccessStoriesRoute,
+  TeamRoute: TeamRoute,
+  TechnicalSupportRoute: TechnicalSupportRoute,
+  TechnicianServicesRoute: TechnicianServicesRoute,
+  TermsRoute: TermsRoute,
+  VideosRoute: VideosRoute,
+  WaterStorageTanksKenyaRoute: WaterStorageTanksKenyaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
