@@ -25,6 +25,7 @@ import { Route as DriplinesForSaleKenyaRouteImport } from './routes/driplines-fo
 import { Route as FertigationSystemsKenyaRouteImport } from './routes/fertigation-systems-kenya'
 import { Route as GreenhouseDripIrrigationKenyaRouteImport } from './routes/greenhouse-drip-irrigation-kenya'
 import { Route as InstallationGuidesRouteImport } from './routes/installation-guides'
+import { Route as IrrigationAdvisorRouteImport } from './routes/irrigation-advisor'
 import { Route as IrrigationCompaniesKenyaRouteImport } from './routes/irrigation-companies-kenya'
 import { Route as IrrigationKitsRouteImport } from './routes/irrigation-kits'
 import { Route as NewsRouteImport } from './routes/news'
@@ -126,6 +127,11 @@ const GreenhouseDripIrrigationKenyaRoute =
 const InstallationGuidesRoute = InstallationGuidesRouteImport.update({
   id: '/installation-guides',
   path: '/installation-guides',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IrrigationAdvisorRoute = IrrigationAdvisorRouteImport.update({
+  id: '/irrigation-advisor',
+  path: '/irrigation-advisor',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IrrigationCompaniesKenyaRoute =
@@ -248,6 +254,7 @@ export interface FileRoutesByFullPath {
   '/fertigation-systems-kenya': typeof FertigationSystemsKenyaRoute
   '/greenhouse-drip-irrigation-kenya': typeof GreenhouseDripIrrigationKenyaRoute
   '/installation-guides': typeof InstallationGuidesRoute
+  '/irrigation-advisor': typeof IrrigationAdvisorRoute
   '/irrigation-companies-kenya': typeof IrrigationCompaniesKenyaRoute
   '/irrigation-kits': typeof IrrigationKitsRoute
   '/news': typeof NewsRoute
@@ -286,6 +293,7 @@ export interface FileRoutesByTo {
   '/fertigation-systems-kenya': typeof FertigationSystemsKenyaRoute
   '/greenhouse-drip-irrigation-kenya': typeof GreenhouseDripIrrigationKenyaRoute
   '/installation-guides': typeof InstallationGuidesRoute
+  '/irrigation-advisor': typeof IrrigationAdvisorRoute
   '/irrigation-companies-kenya': typeof IrrigationCompaniesKenyaRoute
   '/irrigation-kits': typeof IrrigationKitsRoute
   '/news': typeof NewsRoute
@@ -323,6 +331,7 @@ export interface FileRoutesById {
   '/fertigation-systems-kenya': typeof FertigationSystemsKenyaRoute
   '/greenhouse-drip-irrigation-kenya': typeof GreenhouseDripIrrigationKenyaRoute
   '/installation-guides': typeof InstallationGuidesRoute
+  '/irrigation-advisor': typeof IrrigationAdvisorRoute
   '/irrigation-companies-kenya': typeof IrrigationCompaniesKenyaRoute
   '/irrigation-kits': typeof IrrigationKitsRoute
   '/news': typeof NewsRoute
@@ -363,6 +372,7 @@ export interface FileRouteTypes {
     | '/fertigation-systems-kenya'
     | '/greenhouse-drip-irrigation-kenya'
     | '/installation-guides'
+    | '/irrigation-advisor'
     | '/irrigation-companies-kenya'
     | '/irrigation-kits'
     | '/news'
@@ -401,6 +411,7 @@ export interface FileRouteTypes {
     | '/fertigation-systems-kenya'
     | '/greenhouse-drip-irrigation-kenya'
     | '/installation-guides'
+    | '/irrigation-advisor'
     | '/irrigation-companies-kenya'
     | '/irrigation-kits'
     | '/news'
@@ -437,6 +448,7 @@ export interface FileRouteTypes {
     | '/fertigation-systems-kenya'
     | '/greenhouse-drip-irrigation-kenya'
     | '/installation-guides'
+    | '/irrigation-advisor'
     | '/irrigation-companies-kenya'
     | '/irrigation-kits'
     | '/news'
@@ -476,6 +488,7 @@ export interface RootRouteChildren {
   FertigationSystemsKenyaRoute: typeof FertigationSystemsKenyaRoute
   GreenhouseDripIrrigationKenyaRoute: typeof GreenhouseDripIrrigationKenyaRoute
   InstallationGuidesRoute: typeof InstallationGuidesRoute
+  IrrigationAdvisorRoute: typeof IrrigationAdvisorRoute
   IrrigationCompaniesKenyaRoute: typeof IrrigationCompaniesKenyaRoute
   IrrigationKitsRoute: typeof IrrigationKitsRoute
   NewsRoute: typeof NewsRoute
@@ -606,6 +619,13 @@ declare module '@tanstack/react-router' {
       path: '/installation-guides'
       fullPath: '/installation-guides'
       preLoaderRoute: typeof InstallationGuidesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/irrigation-advisor': {
+      id: '/irrigation-advisor'
+      path: '/irrigation-advisor'
+      fullPath: '/irrigation-advisor'
+      preLoaderRoute: typeof IrrigationAdvisorRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/irrigation-companies-kenya': {
@@ -795,6 +815,7 @@ const rootRouteChildren: RootRouteChildren = {
   FertigationSystemsKenyaRoute: FertigationSystemsKenyaRoute,
   GreenhouseDripIrrigationKenyaRoute: GreenhouseDripIrrigationKenyaRoute,
   InstallationGuidesRoute: InstallationGuidesRoute,
+  IrrigationAdvisorRoute: IrrigationAdvisorRoute,
   IrrigationCompaniesKenyaRoute: IrrigationCompaniesKenyaRoute,
   IrrigationKitsRoute: IrrigationKitsRoute,
   NewsRoute: NewsRoute,
