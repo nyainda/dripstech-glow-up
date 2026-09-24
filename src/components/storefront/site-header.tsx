@@ -7,6 +7,7 @@ import { SITE, whatsappLink } from "@/lib/site";
 
 const links = [
   { to: "/products", label: "Products" },
+  { to: "/irrigation-advisor", label: "Advisor" },
   { to: "/services", label: "Services" },
   { to: "/projects", label: "Projects" },
   { to: "/installation-guides", label: "Guides" },
