@@ -11,7 +11,10 @@ export type LiveItem = {
   link: string | null;
   linkLabel: string | null;
   price: number | null;
+  slug?: string | null;
 };
+
+export type Article = { slug: string; title: string; description: string; html: string; image: string | null; meta: string[]; published: string | null; modified: string | null; tags: string[] };
 
 type Row = Record<string, unknown>;
 const s = (v: unknown) => (typeof v === "string" && v.trim() ? v.trim() : null);
@@ -34,7 +37,7 @@ function normalise(kind: LiveKind, r: Row): LiveItem {
       return { ...base, title: s(r["name"]) ?? "Project", text: clip(strip(s(r["testimonial"]))), image: firstImg(r["project_images"], r["after_images"], r["before_images"]), meta: compact([s(r["location"]), s(r["project_type"]), s(r["area_covered"]) && `Area: ${r["area_covered"]}`, s(r["water_saved"]) && `Water saved: ${r["water_saved"]}`, s(r["yield_improvement"]) && `Yield: ${r["yield_improvement"]}`]) };
     case "blog":
     case "news":
-      return { ...base, title: s(r["title"]) ?? "Article", text: clip(strip(s(r["excerpt"]) ?? s(r["content"]))), image: firstImg(r["featured_image_url"], r["featured_image"]), meta: compact([date(r["published_at"] ?? r["created_at"]), s(r["category"]), r["reading_time"] ? `${r["reading_time"]} min read` : null]) };
+      return { ...base, slug: s(r["slug"]) ?? id, title: s(r["title"]) ?? "Article", text: clip(strip(s(r["excerpt"]) ?? s(r["content"]))), image: firstImg(r["featured_image_url"], r["featured_image"]), meta: compact([date(r["published_at"] ?? r["created_at"]), s(r["category"]), r["reading_time"] ? `${r["reading_time"]} min read` : null]) };
     case "videos":
       return { ...base, title: s(r["title"]) ?? "Video", text: clip(strip(s(r["description"]))), image: firstImg(r["thumbnail_url"]), meta: compact([s(r["category"]), s(r["duration"])]), link: s(r["video_url"]), linkLabel: "Watch video" };
     case "team":
@@ -61,4 +64,34 @@ export async function fetchLive(kind: LiveKind): Promise<LiveItem[]> {
   } catch {
     return [];
   }
+}
+
+function sanitize(html: string) {
+  return html
+    .replace(/<(script|style|iframe|object|embed|form)[\s\S]*?<\/\1>/gi, "")
+    .replace(/<(script|iframe|object|embed)[^>]*\/?>/gi, "")
+    .replace(/\son\w+\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi, "")
+    .replace(/(href|src)\s*=\s*(["'])\s*javascript:[^"']*\2/gi, "$1=\"#\"");
+}
+
+export async function fetchArticle(kind: "blog" | "news", slug: string): Promise<Article | null> {
+  try {
+    const res = await fetch(`${API}/api/${kind}`, { headers: { Accept: "application/json", Origin: "https://www.dripstech.co.ke" }, signal: AbortSignal.timeout(8000) });
+    if (!res.ok) return null;
+    const json: unknown = await res.json();
+    const rows = (Array.isArray(json) ? json : ((json as Row)?.["data"] as unknown[]) ?? []) as Row[];
+    const r = rows.find((x) => x && (x["slug"] === slug || String(x["id"]) === slug) && x["published"] !== false && x["published"] !== 0);
+    if (!r) return null;
+    const body = s(r["content"]) ?? "";
+    const isHtml = /<[a-z][^>]*>/i.test(body);
+    const html = isHtml ? sanitize(body) : body.split(/\n{2,}/).map((p) => `<p>${p.replace(/&/g, "&amp;").replace(/</g, "&lt;")}</p>`).join("");
+    const tags = arr(r["tags"]).filter((t): t is string => typeof t === "string");
+    return {
+      slug, title: s(r["seo_title"]) ?? s(r["title"]) ?? "Article",
+      description: clip(strip(s(r["seo_description"]) ?? s(r["excerpt"]) ?? body), 160),
+      html, image: firstImg(r["featured_image_url"], r["featured_image"]), tags,
+      meta: compact([date(r["published_at"] ?? r["created_at"]), s(r["category"]), s(r["author"]), r["reading_time"] ? `${r["reading_time"]} min read` : null]),
+      published: s(r["published_at"]) ?? s(r["created_at"]), modified: s(r["updated_at"]),
+    };
+  } catch { return null; }
 }

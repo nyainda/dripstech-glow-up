@@ -6,4 +6,4 @@ import { LiveContent } from "@/components/live-content";
 import { fetchLive } from "@/lib/content-api";
 const page = contentPages["/news"]!;
 export const Route = createFileRoute("/news")({ head: () => pageHead("/news", `${page.title} | DripTech Eco Flow`, page.description), loader: () => fetchLive("news"), component: Page });
-function Page() { const items = Route.useLoaderData(); return <><ContentPage path="/news" /><LiveContent heading="Latest news" items={items} /></>; }
+function Page() { const items = Route.useLoaderData(); return <><ContentPage path="/news" /><LiveContent heading="Latest news" items={items} articleKind="news" /></>; }
