@@ -42,6 +42,8 @@ import { Route as TechnicianServicesRouteImport } from './routes/technician-serv
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as VideosRouteImport } from './routes/videos'
 import { Route as WaterStorageTanksKenyaRouteImport } from './routes/water-storage-tanks-kenya'
+import { Route as BlogSlugRouteImport } from './routes/blog_.$slug'
+import { Route as NewsSlugRouteImport } from './routes/news_.$slug'
 import { Route as ProductsIndexRouteImport } from './routes/products.index'
 import { Route as ProductsCategoryRouteImport } from './routes/products.$category'
 import { Route as ProductsCategoryIndexRouteImport } from './routes/products.$category.index'
@@ -216,6 +218,16 @@ const WaterStorageTanksKenyaRoute = WaterStorageTanksKenyaRouteImport.update({
   path: '/water-storage-tanks-kenya',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog_/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewsSlugRoute = NewsSlugRouteImport.update({
+  id: '/news_/$slug',
+  path: '/news/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProductsIndexRoute = ProductsIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -271,6 +283,8 @@ export interface FileRoutesByFullPath {
   '/terms': typeof TermsRoute
   '/videos': typeof VideosRoute
   '/water-storage-tanks-kenya': typeof WaterStorageTanksKenyaRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/news/$slug': typeof NewsSlugRoute
   '/products/$category': typeof ProductsCategoryRouteWithChildren
   '/products/': typeof ProductsIndexRoute
   '/products/$category/$product': typeof ProductsCategoryProductRoute
@@ -309,6 +323,8 @@ export interface FileRoutesByTo {
   '/terms': typeof TermsRoute
   '/videos': typeof VideosRoute
   '/water-storage-tanks-kenya': typeof WaterStorageTanksKenyaRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/news/$slug': typeof NewsSlugRoute
   '/products': typeof ProductsIndexRoute
   '/products/$category/$product': typeof ProductsCategoryProductRoute
   '/products/$category': typeof ProductsCategoryIndexRoute
@@ -348,6 +364,8 @@ export interface FileRoutesById {
   '/terms': typeof TermsRoute
   '/videos': typeof VideosRoute
   '/water-storage-tanks-kenya': typeof WaterStorageTanksKenyaRoute
+  '/blog_/$slug': typeof BlogSlugRoute
+  '/news_/$slug': typeof NewsSlugRoute
   '/products/$category': typeof ProductsCategoryRouteWithChildren
   '/products/': typeof ProductsIndexRoute
   '/products/$category/$product': typeof ProductsCategoryProductRoute
@@ -389,6 +407,8 @@ export interface FileRouteTypes {
     | '/terms'
     | '/videos'
     | '/water-storage-tanks-kenya'
+    | '/blog/$slug'
+    | '/news/$slug'
     | '/products/$category'
     | '/products/'
     | '/products/$category/$product'
@@ -427,6 +447,8 @@ export interface FileRouteTypes {
     | '/terms'
     | '/videos'
     | '/water-storage-tanks-kenya'
+    | '/blog/$slug'
+    | '/news/$slug'
     | '/products'
     | '/products/$category/$product'
     | '/products/$category'
@@ -465,6 +487,8 @@ export interface FileRouteTypes {
     | '/terms'
     | '/videos'
     | '/water-storage-tanks-kenya'
+    | '/blog_/$slug'
+    | '/news_/$slug'
     | '/products/$category'
     | '/products/'
     | '/products/$category/$product'
@@ -505,6 +529,8 @@ export interface RootRouteChildren {
   TermsRoute: typeof TermsRoute
   VideosRoute: typeof VideosRoute
   WaterStorageTanksKenyaRoute: typeof WaterStorageTanksKenyaRoute
+  BlogSlugRoute: typeof BlogSlugRoute
+  NewsSlugRoute: typeof NewsSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -740,6 +766,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WaterStorageTanksKenyaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog_/$slug': {
+      id: '/blog_/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/news_/$slug': {
+      id: '/news_/$slug'
+      path: '/news/$slug'
+      fullPath: '/news/$slug'
+      preLoaderRoute: typeof NewsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/products/': {
       id: '/products/'
       path: '/'
@@ -832,6 +872,8 @@ const rootRouteChildren: RootRouteChildren = {
   TermsRoute: TermsRoute,
   VideosRoute: VideosRoute,
   WaterStorageTanksKenyaRoute: WaterStorageTanksKenyaRoute,
+  BlogSlugRoute: BlogSlugRoute,
+  NewsSlugRoute: NewsSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
